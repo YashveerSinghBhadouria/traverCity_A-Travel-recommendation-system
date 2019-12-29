@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>traverCity- a Travel Recommendation Website</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+	  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <link href="css/signupmain.css" rel="stylesheet" media="all">
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <!--<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">traverCity</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="index.html" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>Services</span></a></li>
+	          <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="index.html#destination-section" class="nav-link"><span>Destination</span></a></li>
+	          <li class="nav-item"><a href="index.html#blog-section" class="nav-link"><span>Blog</span></a></li>
+			  <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><span>Contact</span></a></li>
+			  <li class="nav-item"><a href="login.html" class="nav-link"><span>Login</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    -->
+
+	<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Fill This Up For Us To Know You Better!</h2>
+                    <form method="POST">
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <label class="label">What would you want to find in a place where you want to travel?</label>
+                                        <div class="p-t-10">
+                                            <label class="radio-container m-r-45">Adventure
+                                                <input type="checkbox" checked="checked" name="adventure">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Heritage
+                                                <input type="checkbox" name="heritage">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Wildlife
+                                                <input type="checkbox" name="wildlife">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Nature
+                                                <input type="checkbox" name="nature">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Pilgrimage
+                                                <input type="checkbox" name="pilgrimage">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <label class="label">Who would you like to travel with?</label>
+                                        <div class="p-t-10">
+                                            <label class="radio-container m-r-45">Couple
+                                                <input type="checkbox" checked="checked" name="couple">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Friends
+                                                <input type="checkbox" name="friends">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Family
+                                                <input type="checkbox" name="family">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <label class="label">In which season would you love to travel?</label>
+                                        <div class="p-t-10">
+                                            <label class="radio-container m-r-45">Winter
+                                                <input type="checkbox" checked="checked" name="winter">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Spring
+                                                <input type="checkbox" name="spring">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Summer
+                                                <input type="checkbox" name="summer">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Monsoon
+                                                <input type="checkbox" name="monsoon">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Autumn
+                                                <input type="checkbox" name="autumn">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <label class="label">What is the age group you would desire to travel with?</label>
+                                        <div class="p-t-10">
+                                            <label class="radio-container m-r-45">Young
+                                                <input type="checkbox" checked="checked" name="young">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Mid-age
+                                                <input type="checkbox" name="midage">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container m-r-45">Old
+                                                <input type="checkbox" name="old">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <label class="label">What is the age group you would desire to travel with?</label>
+                                        <div class="rs-select2 js-select-simple select--no-search">
+                                            <select name="budget">
+                                                <option selected class="blank">Select Budget</option>
+                                                <option value="fth">Rs. 5,000</option>
+                                                <option value="tth">Rs. 10,000</option>
+                                                <option value="fith">Rs. 50,000</option>
+                                                <option value="olkh">Rs. 1,00,000</option>
+                                                <option value="tlkh">Rs. 2,00,000</option>
+                                                <option value="thlkh">Rs. 3,00,000</option>
+                                                <option value="flkh">Rs. 4,00,000</option>
+                                                <option value="filkh">Rs. 5,00,000</option>
+                                            </select>
+                                            <div class="select-dropdown"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--green" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/loginmain.js"></script>
+    </script>
+</body>
+</html>

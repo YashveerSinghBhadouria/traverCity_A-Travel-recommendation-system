@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <title>traverCity- a Travel Recommendation Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <link rel="stylesheet" href={% static "css/open-iconic-bootstrap.min.css" %}>
+    <link rel="stylesheet" href={% static "css/animate.css" %}>
+
+    <link rel="stylesheet" href={% static "css/owl.carousel.min.css" %}>
+    <link rel="stylesheet" href={% static "css/owl.theme.default.min.css" %}>
+    <link rel="stylesheet" href={% static "css/magnific-popup.css" %}>
+
+    <link rel="stylesheet" href={% static "css/aos.css" %}>
+
+    <link rel="stylesheet" href={% static "css/ionicons.min.css" %}>
+
+    <link rel="stylesheet" href={% static "css/flaticon.css" %}>
+    <link rel="stylesheet" href={% static "css/flaticon.css" %}>
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">traverCity</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <!-- <li class="nav-item"><a href="index.html#home-section" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>Services</span></a></li>
+	          <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="index.html#destination-section" class="nav-link"><span>Destination</span></a></li>
+	          <li class="nav-item"><a href="index.html#hotel-section" class="nav-link"><span>Hotel</span></a></li>
+	          <li class="nav-item"><a href="index.html#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
+	          <li class="nav-item"><a href="index.html#blog-section" class="nav-link"><span>Blog</span></a></li>
+			  <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><span>Contact</span></a></li> -->
+        {% if user.is_authenticated %}
+       {% csrf_token %}
+			  <li class="nav-item"><a href="{% url 'user_logout' %}" class="nav-link"><span>Log Out</span></a></li>
+        {% endif %}
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+	  <section class="hero-wrap hero-wrap-2" style="background-image: url('images/destination-single.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-4">
+            <h1 class="mb-3 bread">Discover New Place</h1>
+             <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Destination <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+	<section class="ftco-section ftco-services-2 ftco-no-pt">
+    	<div class="container-fluid px-0 bg-light">
+    		<div class="container">
+    			<div class="row tour py-5">
+        	<div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services text-center d-block">
+              <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-world"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Adventure</h3><!--Interest-->
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services text-center d-block">
+              <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-manager"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">18+</h3><!--Age-->
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services text-center d-block">
+              <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-calendar"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Summer</h3><!--Season-->
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services text-center d-block">
+              <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-tour-guide"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Friends</h3><!--Company-->
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services text-center d-block">
+              <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-wallet"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Rs. 30,000</h3><!--Budget-->
+              </div>
+            </div>
+          </div>
+        </div>
+    		</div>
+    	</div>
+	</section>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row">
+    				<div class="row">
+		    			<div class="col-md-6 col-lg-4 ftco-animate">
+		    				<div class="project">
+		    					<div class="img">
+				    				<a href="destination-single.html"><img src="images/destination-1.jpg" class="img-fluid" alt="Travel Recommendation"></a>
+			    				</div>
+			    				<div class="text">
+			    					<h3 onclick="ShowReviews()"><a href="destination-single.html">{{ gs0 }}</a></h3>
+			    					<div class="star d-flex clearfix">
+			    						<div class="mr-auto float-left">
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+			    						</div>
+			    						<div class="float-right">
+			    							<span class="rate"><a href="#"></a></span>
+			    						</div>
+			    					</div>
+			    				</div>
+			    				<a href="images/destination-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+			    					<span class="icon-expand"></span>
+			    				</a>
+		    				</div>
+		    			</div>
+		    			<div class="col-md-6 col-lg-4 ftco-animate">
+		    				<div class="project">
+		    					<div class="img">
+				    				<a href="destination-single.html"><img src="images/destination-2.jpg" class="img-fluid" alt="Travel Recommendation"></a>
+			    				</div>
+			    				<div class="text">
+			    					<h3><a href="destination-single.html">{{ gs1 }}</a></h3>
+			    					<div class="star d-flex clearfix">
+			    						<div class="mr-auto float-left">
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+			    						</div>
+			    						<div class="float-right">
+			    							<span class="rate"><a href="#"></a></span>
+			    						</div>
+			    					</div>
+			    				</div>
+			    				<a href="images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+			    					<span class="icon-expand"></span>
+			    				</a>
+		    				</div>
+		    			</div>
+		    			<div class="col-md-6 col-lg-4 ftco-animate">
+		    				<div class="project">
+		    					<div class="img">
+				    				<a href="destination-single.html"><img src="images/destination-3.jpg" class="img-fluid" alt="Travel Recommendation"></a>
+			    				</div>
+			    				<div class="text">
+			    					<h3><a href="destination-single.html">{{ gs2 }}</a></h3>
+			    					<div class="star d-flex clearfix">
+			    						<div class="mr-auto float-left">
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+			    						</div>
+			    						<div class="float-right">
+			    							<span class="rate"><a href="#"></a></span>
+			    						</div>
+			    					</div>
+			    				</div>
+			    				<a href="images/destination-3.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+			    					<span class="icon-expand"></span>
+			    				</a>
+		    				</div>
+		    			</div>
+		    			<div class="col-md-6 col-lg-4 ftco-animate">
+		    				<div class="project">
+		    					<div class="img">
+				    				<a href="destination-single.html"><img src="images/destination-4.jpg" class="img-fluid" alt="Travel Recommendation"></a>
+			    				</div>
+			    				<div class="text">
+			    					<h3><a href="destination-single.html">{{ gs3 }}</a></h3>
+			    					<div class="star d-flex clearfix">
+			    						<div class="mr-auto float-left">
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+			    						</div>
+			    						<div class="float-right">
+			    							<span class="rate"><a href="#"></a></span>
+			    						</div>
+			    					</div>
+			    				</div>
+			    				<a href="images/destination-4.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+			    					<span class="icon-expand"></span>
+			    				</a>
+		    				</div>
+		    			</div>
+		    			<div class="col-md-6 col-lg-4 ftco-animate">
+		    				<div class="project">
+		    					<div class="img">
+				    				<a href="destination-single.html"><img src="images/destination-5.jpg" class="img-fluid" alt="Travel Recommendation"></a>
+			    				</div>
+			    				<div class="text">
+			    					<h3><a href="destination-single.html">{{ gs4 }}</a></h3>
+			    					<div class="star d-flex clearfix">
+			    						<div class="mr-auto float-left">
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+			    						</div>
+			    						<div class="float-right">
+			    							<span class="rate"><a href="#"></a></span>
+			    						</div>
+			    					</div>
+			    				</div>
+			    				<a href="images/destination-5.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+			    					<span class="icon-expand"></span>
+			    				</a>
+		    				</div>
+		    			</div>
+		    			<div class="col-md-6 col-lg-4 ftco-animate">
+		    				<div class="project">
+		    					<div class="img">
+				    				<a href="destination-single.html"><img src="images/destination-6.jpg" class="img-fluid" alt="Travel Recommendation"></a>
+			    				</div>
+			    				<div class="text">
+			    					<h3><a href="destination-single.html">{{ gs5 }}</a></h3>
+			    					<div class="star d-flex clearfix">
+			    						<div class="mr-auto float-left">
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+				    						<span class="ion-ios-star"></span>
+			    						</div>
+			    						<div class="float-right">
+			    							<span class="rate"><a href="#"></a></span>
+			    						</div>
+			    					</div>
+			    				</div>
+			    				<a href="images/destination-6.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+			    					<span class="icon-expand"></span>
+			    				</a>
+		    				</div>
+		    			</div>
+		    		</div>
+		    	<div class="row">
+		          <div class="col text-center">
+		            <div class="block-27">
+		              <ul>
+		                <li><a href="#">&lt;</a></li>
+		                <li class="active"><span>1</span></li>
+		                <li><a href="#">2</a></li>
+		                <li><a href="#">3</a></li>
+		                <li><a href="#">4</a></li>
+		                <li><a href="#">5</a></li>
+		                <li><a href="#">&gt;</a></li>
+		              </ul>
+		            </div>
+		          </div>
+		        </div> <!-- end -->
+    			<!--<div class="col-lg-3 p-4 bg-light">
+    				<div class="search-wrap-1 ftco-animate">
+    					<h2 class="mb-3">Find Places</h2>
+							<form action="#" class="search-property-1">
+		        		<div class="row">
+		        			<div class="col-lg-12 align-items-end mb-3">
+		        				<div class="form-group">
+		        					<label for="#">Destination</label>
+		          				<div class="form-field">
+		          					<div class="icon"><span class="ion-ios-search"></span></div>
+				                <input type="text" class="form-control" placeholder="Search place">
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg-12 align-items-end mb-3">
+		        				<div class="form-group">
+		        					<label for="#">Check-in date</label>
+		        					<div class="form-field">
+		          					<div class="icon"><span class="ion-ios-calendar"></span></div>
+				                <input type="text" class="form-control checkin_date" placeholder="Check In Date">
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg-12 align-items-end mb-3">
+		        				<div class="form-group">
+		        					<label for="#">Check-out date</label>
+		        					<div class="form-field">
+		          					<div class="icon"><span class="ion-ios-calendar"></span></div>
+				                <input type="text" class="form-control checkout_date" placeholder="Check Out Date">
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg-12 align-items-end mb-3">
+		        				<div class="form-group">
+		        					<label for="#">Price Limit</label>
+		        					<div class="form-field">
+		          					<div class="select-wrap">
+		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                      <select name="" id="" class="form-control">
+		                        <option value="">$5,000</option>
+		                        <option value="">$10,000</option>
+		                        <option value="">$50,000</option>
+		                        <option value="">$100,000</option>
+		                        <option value="">$200,000</option>
+		                        <option value="">$300,000</option>
+		                        <option value="">$400,000</option>
+		                        <option value="">$500,000</option>
+		                        <option value="">$600,000</option>
+		                        <option value="">$700,000</option>
+		                        <option value="">$800,000</option>
+		                        <option value="">$900,000</option>
+		                        <option value="">$1,000,000</option>
+		                        <option value="">$2,000,000</option>
+		                      </select>
+		                    </div>
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg-12 align-self-end">
+		        				<div class="form-group">
+		        					<div class="form-field">
+				                <input type="submit" value="Search" class="form-control btn btn-primary">
+				              </div>
+			              </div>
+		        			</div>
+		        		</div>
+		        	</form>
+		        </div>
+    			</div>-->
+
+<!--
+		<div id="BirBillingReviews">
+			<div class="container">
+					<div class="row">
+		    			<div class="col-md-12 tour-wrap mb-5">
+    				<div class="pt-5 mt-5">
+              <h3 class="mb-5">6 Reviews</h3>
+              <ul class="comment-list">
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">October 03, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">October 03, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+
+                  <ul class="children">
+                    <li class="comment">
+                      <div class="vcard bio">
+                        <img src="images/person_1.jpg" alt="Image placeholder">
+                      </div>
+                      <div class="comment-body">
+                        <h3>John Doe</h3>
+                        <div class="meta">October 03, 2018 at 2:21pm</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                        <p><a href="#" class="reply">Reply</a></p>
+                      </div>
+
+
+                      <ul class="children">
+                        <li class="comment">
+                          <div class="vcard bio">
+                            <img src="images/person_1.jpg" alt="Image placeholder">
+                          </div>
+                          <div class="comment-body">
+                            <h3>John Doe</h3>
+                            <div class="meta">October 03, 2018 at 2:21pm</div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                            <p><a href="#" class="reply">Reply</a></p>
+                          </div>
+
+                            <ul class="children">
+                              <li class="comment">
+                                <div class="vcard bio">
+                                  <img src="images/person_1.jpg" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                  <h3>John Doe</h3>
+                                  <div class="meta">October 03, 2018 at 2:21pm</div>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                  <p><a href="#" class="reply">Reply</a></p>
+                                </div>
+                              </li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">October 03, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+              </ul>
+              <!-- END comment-list -->
+
+              <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Leave a comment</h3>
+                <form action="#" class="p-5 bg-light">
+                  <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" class="form-control" id="website">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                  </div>
+
+                </form>
+              </div>
+            </div>
+    			</div>
+			</div>
+			</div>
+		</div>
+
+    </section>
+
+
+    <footer class="ftco-footer ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">About <span><a href="index.html">traverCity</a></span></h2>
+              <p>A place to discover new places for your upcoming trips.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Online Enquiry</a></li>
+                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>General Enquiry</a></li>
+                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Call Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Experience</h2>
+              <ul class="list-unstyled">
+                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Adventure</a></li>
+                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Beach</a></li>
+                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nature</a></li>
+                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Camping</a></li>
+                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Party</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Medicaps University, A.B. Road, Indore, M.P.</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91- 8456734561</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@travercity.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src={% static "js/jquery.min.js" %}></script>
+  <script src={% static "js/jquery-migrate-3.0.1.min.js" %}></script>
+  <script src={% static "js/popper.min.js" %}></script>
+  <script src={% static "js/bootstrap.min.js" %}></script>
+  <script src={% static "js/jquery.easing.1.3.js" %}></script>
+  <script src={% static "js/jquery.waypoints.min.js" %}></script>
+  <script src={% static "js/jquery.stellar.min.js" %}></script>
+  <script src={% static "js/owl.carousel.min.js" %}></script>
+  <script src={% static "js/jquery.magnific-popup.min.js" %}></script>
+  <script src={% static "js/aos.js" %}></script>
+  <script src={% static "js/jquery.animateNumber.min.js" %}></script>
+  <script src={% static "js/scrollax.min.js" %}></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src={% static "js/google-map.js" %}></script>
+
+  <script src={% static "js/main.js" %}></script>
+
+  <script>
+  function ShowReviews()
+  {
+	var x= document.getElementById(BirBillingReviews);
+	if(x.style.display=="none")
+	{
+		x.style.display="block";
+	}else{
+		x.style.display="none";
+	}
+  }
+  </script>
+
+  </body>
+</html>

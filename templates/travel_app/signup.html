@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+	<title>traverCity- a Travel Recommendation Website</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href={% static "vendor/mdi-font/css/material-design-iconic-font.min.css" %} rel="stylesheet" media="all">
+    <link href={% static "vendor/font-awesome-4.7/css/font-awesome.min.css" %} rel="stylesheet" media="all">
+	<link rel="stylesheet" type="text/css" href={% static "vendor/select2/select2.min.css" %}/>
+	<link rel="stylesheet" type="text/css" href={% static "vendor/daterangepicker/daterangepicker.css" %}/>
+  <link href={% static "css/signupmain.css" %} rel="stylesheet" media="all"/>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <!--<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">traverCity</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="index.html" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>Services</span></a></li>
+	          <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="index.html#destination-section" class="nav-link"><span>Destination</span></a></li>
+	          <li class="nav-item"><a href="index.html#blog-section" class="nav-link"><span>Blog</span></a></li>
+			  <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><span>Contact</span></a></li>
+			  <li class="nav-item"><a href="login.html" class="nav-link"><span>Login</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    -->
+
+	<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+									 {% if registered %}
+									 	<h1><center>Thanks for registering!</center></h1>
+										<!-- <h1>{{ username }}</h1> -->
+									 	<!-- <script type="text/javascript"> -->
+									 	<button class="btn btn--radius-2 btn--green" onclick="send()">Move to Questionnaire...CLick Here</button>
+									 	<!-- </script> -->
+									 {% else %}
+                    <h2 class="title"><center><b>REGISTRATION FORM</b>	</center></h2>
+                    <form method="POST">
+										{% csrf_token %}
+										<table border = '1' width = 100%>
+
+										{{ user_form.as_table }}
+										{{ usersignup_form.as_table }}
+									</table>
+                        <!-- <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Name</label>
+                                    <input class="input--style-4" type="text" name="name">
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">E-mail</label>
+                                    <input class="input--style-4" type="email" name="email">
+                                </div>
+                            </div>
+														<div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" name="username">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Password</label>
+                                    <input class="input--style-4" type="password" name="password">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Contact Number</label>
+                                    <input class="input--style-4" type="text" name="phone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-1">
+                                <div class="input-group">
+                                    <label class="label">Date of Birth</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker1"  type="text" name="birthday">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar1"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <div class="input-group">
+                                    <label class="label">Gender</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Male
+                                            <input type="radio" checked="checked" name="gender">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Female
+                                            <input type="radio" name="gender">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-1">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <label class="label">Marital Status</label>
+                                        <div class="p-t-10">
+                                            <label class="radio-container m-r-45">Single
+                                                <input type="radio" checked="checked" name="status" id = "single">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container">Married
+                                                <input type="radio" name="status" id="married">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group" id="dom" style="display: none">
+                                    <label class="label">Date of Marriage</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker2" type="text" name="anniversary">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-t-15">
+                            <input class="btn btn--radius-2 btn--green" type="submit" value="Sign Up" onclick="send()">
+                        </div> -->
+												<input class="btn btn--radius-2 btn--green" type="submit" value="Sign Up">
+												 <!-- onclick="send()"> -->
+                    </form>
+									 {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!--<div id="dropDownSelect1"></div>-->
+
+	<script src={% static "vendor/jquery/jquery-3.2.1.min.js" %}></script>
+	<script src={% static "vendor/animsition/js/animsition.min.js" %}></script>
+	<script src={% static "vendor/bootstrap/js/popper.js" %}></script>
+	<script src={% static "vendor/bootstrap/js/bootstrap.min.js" %}></script>
+	<script src={% static "vendor/select2/select2.min.js" %}></script>
+	<script src={% static "vendor/daterangepicker/moment.min.js" %}></script>
+	<script src={% static "vendor/daterangepicker/daterangepicker.js" %}></script>
+	<script src={% static "vendor/countdowntime/countdowntime.js" %}></script>
+  <script src={% static "js/global.js" %}></script>
+  <script src={% static "js/loginmain.js" %}></script>
+  <script>
+  $('#married').change(function()
+  {
+      $('#dom').toggle();
+  });
+	function send()
+	{
+			//console.log("Username:" , username)
+			window.location.href="{% url 'travel_app:newq' %}" }
+  </script>
+
+</body>
+</html>

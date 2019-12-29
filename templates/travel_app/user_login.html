@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<title>traverCity- a Travel Recommendation Website</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href={% static "images/icons/favicon.ico" %}/>
+	<link rel="stylesheet" type="text/css" href={% static "vendor/bootstrap/css/bootstrap.min.css" %}>
+	<link rel="stylesheet" type="text/css" href={% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}>
+	<link rel="stylesheet" type="text/css" href={% static "fonts/Linearicons-Free-v1.0.0/icon-font.min.css" %}>
+	<link rel="stylesheet" type="text/css" href={% static "vendor/animate/animate.css" %}>
+	<link rel="stylesheet" type="text/css" href={% static "vendor/css-hamburgers/hamburgers.min.css" %}>
+	<link rel="stylesheet" type="text/css" href={% static "vendor/animsition/css/animsition.min.css" %}>
+	<link rel="stylesheet" type="text/css" href={% static "vendor/select2/select2.min.css" %}>
+	<link rel="stylesheet" type="text/css" href={% static "vendor/daterangepicker/daterangepicker.css" %}>
+	<link rel="stylesheet" type="text/css" href={% static "css/util.css" %}>
+	<link rel="stylesheet" type="text/css" href={% static "css/main.css" %}>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">traverCity</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="index.html" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>Services</span></a></li>
+	          <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>About</span></a></li>
+	          <!-- <li class="nav-item"><a href="index.html#destination-section" class="nav-link"><span>Destination</span></a></li> -->
+	          <!--<li class="nav-item"><a href="#hotel-section" class="nav-link"><span>Hotel</span></a></li>
+	          <li class="nav-item"><a href="#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>-->
+	          <li class="nav-item"><a href="index.html#blog-section" class="nav-link"><span>Blog</span></a></li>
+			  <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><span>Contact</span></a></li>
+			  <li class="nav-item"><a href="login.html" class="nav-link"><span>Login</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="{% url 'travel_app:destination' %}" method='POST'>
+					{% csrf_token %}
+					<span class="login100-form-title p-b-34">
+						Account Login
+					</span>
+
+					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
+						<input class="input100" type="text" name="username" placeholder="Username">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit" name="" value="Login">
+							Sign In
+						</button>
+					</div>
+
+					<div class="w-full text-center p-t-27 p-b-239">
+						<span class="txt1">
+							Forgot
+						</span>
+
+						<a href="#" class="txt2">
+							User name / password?
+						</a>
+					</div>
+
+					<div class="w-full text-center">
+						<a href="{% url 'travel_app:signup' %}" class="txt3">
+							Sign Up
+						</a>
+					</div>
+				</form>
+
+				<div class="login100-more" style="background-image: url({% static 'images/bg-01.jpg' %});"></div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+	<script src={% static "vendor/jquery/jquery-3.2.1.min.js" %}></script>
+	<script src={% static "vendor/animsition/js/animsition.min.js" %}></script>
+	<script src={% static "vendor/bootstrap/js/popper.js" %}></script>
+	<script src={% static "vendor/bootstrap/js/bootstrap.min.js" %}></script>
+	<script src={% static "vendor/select2/select2.min.js" %}></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+	<script src={% static "vendor/daterangepicker/moment.min.js" %}></script>
+	<script src={% static "vendor/daterangepicker/daterangepicker.js" %}></script>
+	<script src={% static "vendor/countdowntime/countdowntime.js" %}></script>
+	<script src={% static "js/loginmain.js" %}></script>
+
+</body>
+</html>
